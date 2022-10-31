@@ -2,6 +2,7 @@ package se.lexicon;
 
 public class Car {
 
+  private static int sequencer = 1000; // 1001
   // Fields
   private int id;
   private String brand;
@@ -16,6 +17,7 @@ public class Car {
   // Constructors
   public Car() {
     this.year = 2022;
+    this.id = ++sequencer;
   }
 
   // Constructors
@@ -28,6 +30,8 @@ public class Car {
 
   // Constructors
   public Car(String brand, String color, String model, int year) {
+    this.id = ++sequencer;
+
     setBrand(brand);
     this.color = color;
     this.model = model;
@@ -40,7 +44,7 @@ public class Car {
 
   // Methods
   public String getCarInformation() {
-    return "Car: brand: " + brand + " Model: " + model + " Year: " + year;
+    return "Car: Id: " + id + " brand: " + brand + " Model: " + model + " Year: " + year;
   }
 
   public String getOwnerInformation() {
@@ -52,6 +56,11 @@ public class Car {
   }
 
   // Getters & Setters
+
+  public int getId(){
+    return id;
+  }
+
 
   public void setOwner(Person owner) {
     this.owner = owner;
